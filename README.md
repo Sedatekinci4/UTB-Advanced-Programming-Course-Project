@@ -57,4 +57,4 @@ In this program user can ask questions like:
 + 13.12.2022
 - PRESENTATION DAY!!!!
 ```
-                                                                Sedat Ekinci
+--Sedat Ekinci
