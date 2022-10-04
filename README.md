@@ -28,16 +28,17 @@ In this program user can ask questions like:
 - Creating the main menu and the other options for operations (non-functional)
 
 + 11.10.2022
-- Creating a basic database for customers and the rooms
+- Creating the functions for the operations
 
 + 18.10.2022
-- Improving the database and make it functional
+- Creating a basic database for customers and the rooms
 
 + 25.10.2022
-- Handling the database problems and obverall debug / improvement
+- Improving the database and make it functional
 
 + 01.11.2022
-- Creating the functions for the operations
+- Handling the database problems and obverall debug / improvement
+
 
 + 08.11.2022
 - Finishing all the operations completely
