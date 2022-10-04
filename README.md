@@ -39,7 +39,6 @@ In this program user can ask questions like:
 + 01.11.2022
 - Handling the database problems and obverall debug / improvement
 
-
 + 08.11.2022
 - Finishing all the operations completely
 
