@@ -1,5 +1,6 @@
 from tkinter import *
 import os
+import check_in
 
 
 class Hotel:
@@ -24,7 +25,7 @@ class Hotel:
         # Check in button
         self.check_in_button = Button(bottom, text="CHECK IN", font=("Times", "20", "bold"), bg="#15d3ba", relief=RIDGE,
                                       height=2,
-                                      width=45, fg="black", anchor="center", command=None)
+                                      width=45, fg="black", anchor="center", command=check_in.check_in_ui)
         self.check_in_button.grid(row=0, column=2, padx=10, pady=10)
 
         # Check out button
