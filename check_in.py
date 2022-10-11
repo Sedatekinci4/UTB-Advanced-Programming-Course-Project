@@ -22,31 +22,40 @@ def check_in_ui():
 
         # Create a cursor
         c = conn.cursor()
+        if room_number.get() == '101' or room_number.get() == '102' or room_number.get() == '103' or room_number.get() == '201' or room_number.get() == '202' or room_number.get() == '203' \
+                or room_number.get() == '301' or room_number.get() == '302' or room_number.get() == '303' or room_number.get() == '401' or room_number.get() == '402' or room_number.get() == '403':
+            # Insert into table
+            c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number)",
+                      {
+                          'f_name': f_name.get(),
+                          'l_name': l_name.get(),
+                          'address': address.get(),
+                          'number': number.get(),
+                          'room_number': room_number.get()
+                      })
 
-        # Insert into table
-        c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number)",
-                  {
-                      'f_name': f_name.get(),
-                      'l_name': l_name.get(),
-                      'address': address.get(),
-                      'number': number.get(),
-                      'room_number': room_number.get()
-                  })
+            # Commit change
+            conn.commit()
 
-        # Commit change
-        conn.commit()
+            # close connection
+            conn.close()
 
-        # close connection
-        conn.close()
+            # Clear the text boxes
+            f_name.delete(0, END)
+            l_name.delete(0, END)
+            address.delete(0, END)
+            number.delete(0, END)
+            room_number.delete(0, END)
 
-        # Clear the text boxes
-        f_name.delete(0, END)
-        l_name.delete(0, END)
-        address.delete(0, END)
-        number.delete(0, END)
-        room_number.delete(0, END)
-
-        messagebox.showinfo("information", "Check in done succesfully")
+            messagebox.showinfo("information", "Check in done succesfully")
+        else:
+            messagebox.showerror("Warning", "You've entered the wrong room number")
+            # Clear the text boxes
+            f_name.delete(0, END)
+            l_name.delete(0, END)
+            address.delete(0, END)
+            number.delete(0, END)
+            room_number.delete(0, END)
 
     # Create tet boxes
     f_name = Entry(root, width=40, borderwidth=10)

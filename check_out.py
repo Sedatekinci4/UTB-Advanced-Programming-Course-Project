@@ -62,7 +62,7 @@ def check_out_ui():
     delete_box_label.grid(row=0, column=0)
 
     # CREATE a query button
-    query_btn = Button(root, text="Show Records", command=query)
+    query_btn = Button(root, text="Show OID's", command=query)
     query_btn.grid(row=5, column=0, columnspan=2, pady=10, padx=10, ipadx=124)
 
     # create a delete button
@@ -73,7 +73,7 @@ def check_out_ui():
     exit_button = Button(root, text="EXIT", font=('', 10), bg="#15d3ba",
                          relief=RIDGE,
                          height=1, width=15, fg="red", anchor="center", command=close)
-    exit_button.grid(row=7, column=2, padx=10, pady=10)
+    exit_button.grid(row=4, column=3, padx=10, pady=10)
 
     root.mainloop()
 

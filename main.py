@@ -3,12 +3,13 @@ import os
 import check_in
 import check_out
 import show_customer_info
+import room_info
 
 
 def home_ui():
     root = Tk()
     root.title("SEDAT HOTEL HOMEPAGE")
-    root.geometry("900x900")
+    root.geometry("950x950")
 
     top = Frame(root)
     top.pack(side="top")
@@ -33,17 +34,17 @@ def home_ui():
     check_out_button.grid(row=1, column=2, padx=10, pady=10)
 
     # Room info button
-    room_info_button = Button(bottom, text="INFORMATION OF ALL GUESTS", font=("Times", "20", "bold"),
+    get_info_button = Button(bottom, text="INFORMATION OF ALL GUESTS", font=("Times", "20", "bold"),
                               bg="#15d3ba",
                               relief=RIDGE,
                               height=2, width=45, fg="black", anchor="center", command=show_customer_info.customer_info)
-    room_info_button.grid(row=2, column=2, padx=10, pady=10)
+    get_info_button.grid(row=2, column=2, padx=10, pady=10)
 
     # Guest info button
-    get_info_button = Button(bottom, text="INFORMATION OF ROOMS", font=("Times", "20", "bold"), bg="#15d3ba",
+    room_info_button = Button(bottom, text="INFORMATION OF ROOMS", font=("Times", "20", "bold"), bg="#15d3ba",
                              relief=RIDGE,
-                             height=2, width=45, fg="black", anchor="center", command=None)
-    get_info_button.grid(row=3, column=2, padx=10, pady=10)
+                             height=2, width=45, fg="black", anchor="center", command=room_info.room_info_ui)
+    room_info_button.grid(row=3, column=2, padx=10, pady=10)
 
     # Order sth button
     order_button = Button(bottom, text="ORDERS (FOOD / DRINK)", font=("Times", "20", "bold"), bg="#15d3ba",
@@ -71,7 +72,6 @@ def home_ui():
     exit_button.grid(row=7, column=2, padx=10, pady=10)
 
     root.mainloop()
-
 
 if __name__ == '__main__':
     home_ui()
