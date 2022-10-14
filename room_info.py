@@ -78,47 +78,47 @@ def room_info_ui():
         room_103_cb.config(state=DISABLED)
         if room103 == 1:
             room_103_cb.select()
-        room_201_cb = Checkbutton(root, text="Room 201")
+        room_201_cb = Checkbutton(root, text="Room 201   --- Normal 2 bed 2 person room ---")
         room_201_cb.grid(row=7, column=0)
         room_201_cb.config(state=DISABLED)
         if room201 == 1:
             room_201_cb.select()
-        room_202_cb = Checkbutton(root, text="Room 202")
+        room_202_cb = Checkbutton(root, text="Room 202   --- Normal 2 bed 2 person room ---")
         room_202_cb.grid(row=8, column=0)
         room_202_cb.config(state=DISABLED)
         if room202 == 1:
             room_202_cb.select()
-        room_203_cb = Checkbutton(root, text="Room 203")
+        room_203_cb = Checkbutton(root, text="Room 203   --- Normal 2 bed 2 person room ---")
         room_203_cb.grid(row=9, column=0)
         room_203_cb.config(state=DISABLED)
         if room203 == 1:
             room_203_cb.select()
-        room_301_cb = Checkbutton(root, text="Room 301")
+        room_301_cb = Checkbutton(root, text="Room 301   --- Normal 1 bed 2 person room ---")
         room_301_cb.grid(row=10, column=0)
         room_301_cb.config(state=DISABLED)
         if room301 == 1:
             room_301_cb.select()
-        room_302_cb = Checkbutton(root, text="Room 302")
+        room_302_cb = Checkbutton(root, text="Room 302   --- Normal 1 bed 2 person room ---")
         room_302_cb.grid(row=11, column=0)
         room_302_cb.config(state=DISABLED)
         if room302 == 1:
             room_302_cb.select()
-        room_303_cb = Checkbutton(root, text="Room 303")
+        room_303_cb = Checkbutton(root, text="Room 303   --- Normal 1 bed 2 person room ---")
         room_303_cb.grid(row=12, column=0)
         room_303_cb.config(state=DISABLED)
         if room303 == 1:
             room_303_cb.select()
-        room_401_cb = Checkbutton(root, text="Room 401")
+        room_401_cb = Checkbutton(root, text="Room 401   ---  1 Double bed 1 normal bed  ---")
         room_401_cb.grid(row=13, column=0)
         room_401_cb.config(state=DISABLED)
         if room401 == 1:
             room_401_cb.select()
-        room_402_cb = Checkbutton(root, text="Room 402")
+        room_402_cb = Checkbutton(root, text="Room 402   ---  1 Double bed 1 normal bed  ---")
         room_402_cb.grid(row=14, column=0)
         room_402_cb.config(state=DISABLED)
         if room402 == 1:
             room_402_cb.select()
-        room_403_cb = Checkbutton(root, text="Room 403")
+        room_403_cb = Checkbutton(root, text="Room 403   ---  1 Double bed 1 normal bed  ---")
         room_403_cb.grid(row=15, column=0)
         room_403_cb.config(state=DISABLED)
         if room403 == 1:
@@ -136,6 +136,12 @@ def room_info_ui():
     # CREATE a query button
     query_btn = Button(root, text="Show Room Info", command=query)
     query_btn.grid(row=1, column=0, columnspan=2, pady=10, padx=10, ipadx=124)
+
+    # Exit button
+    exit_button = Button(root, text="EXIT", font=('', 10), bg="#15d3ba",
+                         relief=RIDGE,
+                         height=1, width=15, fg="red", anchor="center", command=close)
+    exit_button.grid(row=2, column=1)
 
     root.mainloop()
 
