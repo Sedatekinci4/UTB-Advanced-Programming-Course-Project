@@ -53,7 +53,7 @@ def check_out_ui():
         # close connection
         conn.close()
 
-    # Creating the boxxes
+    # Creating the boxes
     delete_box = Entry(root, width=40, borderwidth=10)
     delete_box.grid(row=0, column=1)
 

@@ -1,5 +1,4 @@
 from tkinter import *
-import os
 import check_in
 import check_out
 import show_customer_info
@@ -35,15 +34,15 @@ def home_ui():
 
     # Room info button
     get_info_button = Button(bottom, text="INFORMATION OF ALL GUESTS", font=("Times", "20", "bold"),
-                              bg="#15d3ba",
-                              relief=RIDGE,
-                              height=2, width=45, fg="black", anchor="center", command=show_customer_info.customer_info)
+                             bg="#15d3ba",
+                             relief=RIDGE,
+                             height=2, width=45, fg="black", anchor="center", command=show_customer_info.customer_info)
     get_info_button.grid(row=2, column=2, padx=10, pady=10)
 
     # Guest info button
     room_info_button = Button(bottom, text="INFORMATION OF ROOMS", font=("Times", "20", "bold"), bg="#15d3ba",
-                             relief=RIDGE,
-                             height=2, width=45, fg="black", anchor="center", command=room_info.room_info_ui)
+                              relief=RIDGE,
+                              height=2, width=45, fg="black", anchor="center", command=room_info.room_info_ui)
     room_info_button.grid(row=3, column=2, padx=10, pady=10)
 
     # Order sth button
@@ -72,6 +71,7 @@ def home_ui():
     exit_button.grid(row=7, column=2, padx=10, pady=10)
 
     root.mainloop()
+
 
 if __name__ == '__main__':
     home_ui()
