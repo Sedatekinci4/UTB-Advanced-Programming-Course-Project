@@ -42,7 +42,7 @@ def check_out_ui():
         # Loop through records
         print_records = ''
         for record in records:
-            print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(record[5]) + "\n"
+            print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(record[6]) + "\n"
 
         query_label = Label(root, text=print_records)
         query_label.grid(row=6, column=0, columnspan=2)
