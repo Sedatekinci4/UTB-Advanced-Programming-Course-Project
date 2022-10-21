@@ -10,8 +10,6 @@ def check_in_ui():
 
     # databases
 
-    # Create a db or connect to one
-
     def close_it():
         root.destroy()
 
@@ -24,14 +22,25 @@ def check_in_ui():
         c = conn.cursor()
         if room_number.get() == '101' or room_number.get() == '102' or room_number.get() == '103' or room_number.get() == '201' or room_number.get() == '202' or room_number.get() == '203' \
                 or room_number.get() == '301' or room_number.get() == '302' or room_number.get() == '303' or room_number.get() == '401' or room_number.get() == '402' or room_number.get() == '403':
+            if str(room_number.get()) == '101' or str(room_number.get()) == '102' or str(room_number.get()) == '103':
+                cost = 50
+            elif str(room_number.get()) == '201' or str(room_number.get()) == '202' or str(room_number.get()) == '203':
+                cost = 75
+            elif str(room_number.get()) == '301' or str(room_number.get()) == '302' or str(room_number.get()) == '303':
+                cost = 75
+            elif str(room_number.get()) == '201' or str(room_number.get()) == '202' or str(room_number.get()) == '203':
+                cost = 150
+            else:
+                cost = 0
             # Insert into table
-            c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number)",
+            c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number, :cost)",
                       {
                           'f_name': f_name.get(),
                           'l_name': l_name.get(),
                           'address': address.get(),
                           'number': number.get(),
-                          'room_number': room_number.get()
+                          'room_number': room_number.get(),
+                          'cost': cost
                       })
 
             # Commit change

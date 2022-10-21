@@ -3,6 +3,7 @@ import check_in
 import check_out
 import show_customer_info
 import room_info
+import order
 
 
 def home_ui():
@@ -48,7 +49,7 @@ def home_ui():
     # Order sth button
     order_button = Button(bottom, text="ORDERS (FOOD / DRINK)", font=("Times", "20", "bold"), bg="#15d3ba",
                           relief=RIDGE,
-                          height=2, width=45, fg="black", anchor="center", command=None)
+                          height=2, width=45, fg="black", anchor="center", command=order.order_ui)
     order_button.grid(row=4, column=2, padx=10, pady=10)
 
     # Call housecleaning button
