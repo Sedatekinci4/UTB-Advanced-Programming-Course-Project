@@ -5,7 +5,7 @@ import sqlite3
 def customer_info():
     root = Tk()
     root.geometry("600x600")
-    root.title("CUSTOMER INFORMATION")
+    root.title("SEDAT HOTEL CUSTOMER INFORMATION")
 
     def close():
         root.destroy()
@@ -29,7 +29,8 @@ def customer_info():
                              + " Last Name:" + '\t' + str(record[1]) + '\n' \
                              + " Address:" + '\t' + str(record[2]) + '\n' \
                              + " Phone Number:" + '\t' + str(record[3]) + '\n' \
-                             + " Room No:" + '\t' + str(record[4]) + '\n\n'
+                             + " Room No:" + '\t' + str(record[4]) + '\n' \
+                             + " Bill Price:" + '\t' + str(record[5]) + '$' + '\n\n' \
 
         query_label = Label(root, text=print_records)
         query_label.grid(row=3, column=0)

@@ -4,7 +4,7 @@ import sqlite3
 
 def check_out_ui():
     root = Tk()
-    root.title("SEDAT HOTEL CHECK IN")
+    root.title("SEDAT HOTEL CHECK OUT")
     root.geometry("500x500")
 
     def close():
