@@ -36,7 +36,6 @@ def order_ui():
         cust_records = c.fetchall()
         for x in cust_records:
             if str(x) == str(buyer):
-                print("vamos")
                 person = x[0]
                 break
 
@@ -47,7 +46,6 @@ def order_ui():
         for name in names:
             print(name)
             if str(name[0]) == str(person):
-                print("vamos1231")
                 print(name[5])
                 print(pri)
                 s = name[5] + pri
@@ -73,7 +71,6 @@ def order_ui():
         conn = sqlite3.connect('Hotel.db')
         c = conn.cursor()
 
-        record_id = oid_p
         c.execute("""UPDATE customers SET
             cost = :cost
             WHERE oid = :oid""",
