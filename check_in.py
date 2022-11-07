@@ -12,19 +12,6 @@ def check_in_ui():
     def close_it():
         root.destroy()
 
-    """"*def check_room_taken():
-        # Create a db or connect to one
-        conn = sqlite3.connect("Hotel.db")
-
-        # Create a cursor
-        c = conn.cursor()
-        c.execute("SELECT Room_number FROM customers")
-        
-        room_taken  = c.fetchall()
-        for room in room_taken:"""
-
-
-
     # Create submit function for databases
     def submit():
 
@@ -44,17 +31,20 @@ def check_in_ui():
                     is_room_empty = 1
                     continue
             if is_room_empty == 0:
-                if str(room_number.get()) == '101' or str(room_number.get()) == '102' or str(room_number.get()) == '103':
+                if str(room_number.get()) == '101' or str(room_number.get()) == '102' or str(
+                        room_number.get()) == '103':
                     cost = 50
-                elif str(room_number.get()) == '201' or str(room_number.get()) == '202' or str(room_number.get()) == '203':
+                elif str(room_number.get()) == '201' or str(room_number.get()) == '202' or str(
+                        room_number.get()) == '203':
                     cost = 75
-                elif str(room_number.get()) == '301' or str(room_number.get()) == '302' or str(room_number.get()) == '303':
+                elif str(room_number.get()) == '301' or str(room_number.get()) == '302' or str(
+                        room_number.get()) == '303':
                     cost = 75
-                elif str(room_number.get()) == '401' or str(room_number.get()) == '402' or str(room_number.get()) == '403':
+                elif str(room_number.get()) == '401' or str(room_number.get()) == '402' or str(
+                        room_number.get()) == '403':
                     cost = 150
                 else:
                     cost = 0
-
 
                 # Insert into table
                 c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number, :cost)",
@@ -81,6 +71,7 @@ def check_in_ui():
                 room_number.delete(0, END)
 
                 messagebox.showinfo("information", "Check in done successfully")
+                root.destroy()
             else:
                 messagebox.showerror("Warning", "room is not empty")
                 # Clear the text boxes
@@ -97,6 +88,7 @@ def check_in_ui():
             address.delete(0, END)
             number.delete(0, END)
             room_number.delete(0, END)
+            root.destroy()
 
     # Create tet boxes
     f_name = Entry(root, width=40, borderwidth=10)

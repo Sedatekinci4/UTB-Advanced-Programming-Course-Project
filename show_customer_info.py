@@ -115,6 +115,7 @@ def customer_info():
             print("empty")
             messagebox.showerror("Warning", "NO SUCH A CUSTOMER WITH THIS OID")
             close_editor()
+            root.destroy()
 
         for record in records:
             f_name_editor.insert(0, record[0])
