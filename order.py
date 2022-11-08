@@ -84,23 +84,8 @@ def order_ui():
 
         # close connection
         conn.close()
-
-        # customer_length = len(cust_records)
-        # for cst in range(customer_length):
-        #     customer_button = Button(side_left,
-        #                           text="Name: " + str(records[order][0]) + '\n' "Surname: " + str(
-        #                               records[order][1]) + '\n' + "Addition: " + str(
-        #                               records[order][2]) + '\n' + "Price: " + str(records[order][3]) + "$",
-        #                           font=("Times", "10", "bold"), bg="#15d3ba", relief=RIDGE,
-        #                           height=4,
-        #                           width=20, fg="black", anchor="nw", command=None)
-        #     customer_button.grid(row=order + 2, column=3, padx=30, pady=3)
-
-        # Commit change
-        # conn.commit()
-
-        # close connection
-        # conn.close()
+        messagebox.showinfo('SUCCESS', 'You have successfully give the order, the payment will be saved to your bill')
+        root.destroy()
 
     root = Tk()
     root.title("SEDAT HOTEL ORDERS")
@@ -162,16 +147,19 @@ def order_ui():
     conn = sqlite3.connect("Hotel.db")
     # Create a cursor
     c = conn.cursor()
+    people = []
     # Query the database
-    c.execute("SELECT * FROM customers")
+    c.execute("SELECT Name,Surname,Room_number,Cost FROM customers")
     cust_records = c.fetchall()
+    for cst in cust_records:
+        people.append({cst[0], cst[1], cst[2]})
     customer_count = len(cust_records)
 
     for cst in range(customer_count):
         customer_button = Button(side_left,
                                  text="Name: " + str(cust_records[cst][0]) + '\n' "Surname: " + str(
                                      cust_records[cst][1]) + '\n' + "Room_NO: " + str(
-                                     cust_records[cst][4]) + '\n' + "Bill: " + str(cust_records[cst][5]) + "$",
+                                     cust_records[cst][2]) + '\n' + "Bill: " + str(cust_records[cst][3]) + "$",
                                  font=("Times", "10", "bold"), bg="#15d3ba", relief=RIDGE,
                                  height=4,
                                  width=20, fg="black", anchor="nw", command=None)
@@ -180,7 +168,7 @@ def order_ui():
     cust_var = StringVar(root)
     cust_var.set("SELECT THE CUSTOMER")  # default value
 
-    w1 = OptionMenu(root, cust_var, *cust_records)
+    w1 = OptionMenu(root, cust_var, *people)
     w1.pack()
 
     button = Button(root, text="SUBMIT", command=select_customer)
