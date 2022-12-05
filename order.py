@@ -28,34 +28,36 @@ def order_ui():
                 break
 
         print(pri)
-
+        print(buyer[1])
         global person
         global oid_p
         # Query the database
-        c.execute("SELECT * FROM customers")
+        c.execute("SELECT Oid FROM customers")
         cust_records = c.fetchall()
         for x in cust_records:
-            if str(x) == str(buyer):
+            if str(x[0]) == str(buyer[1]):
                 person = x[0]
+                print("doneeeee")
                 break
 
         print(person)
 
-        c.execute("SELECT * FROM customers")
+        c.execute("SELECT *,Oid FROM customers")
         names = c.fetchall()
         for name in names:
             print(name)
-            if str(name[0]) == str(person):
+            if str(name[6]) == str(person):
                 print(name[5])
                 print(pri)
                 s = name[5] + pri
                 break
+
         print(s)
 
-        c.execute("SELECT *,oid FROM customers")
+        c.execute("SELECT *,Oid FROM customers")
         b_name = c.fetchall()
         for i in b_name:
-            if str(person) == str(i[0]):
+            if str(person) == str(i[6]):
                 oid_p = i[6]
                 break
 
@@ -149,10 +151,10 @@ def order_ui():
     c = conn.cursor()
     people = []
     # Query the database
-    c.execute("SELECT Name,Surname,Room_number,Cost FROM customers")
+    c.execute("SELECT Name,Surname,Room_number,Cost,Oid  FROM customers")
     cust_records = c.fetchall()
     for cst in cust_records:
-        people.append({cst[0], cst[1], cst[2]})
+        people.append([cst[4],cst[0],cst[1], cst[2]])
     customer_count = len(cust_records)
 
     for cst in range(customer_count):
