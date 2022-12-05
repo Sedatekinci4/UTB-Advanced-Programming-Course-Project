@@ -3,8 +3,39 @@ import sqlite3
 
 
 def test_ui():
+
+    def show_keeper():
+        # Create a db or connect to one
+        conn = sqlite3.connect("Hotel.db")
+        # Create a cursor
+        c = conn.cursor()
+
+        c.execute("SELECT *, oid FROM keepers")
+        keepers = c.fetchall()
+        print(keepers)
+
+
+        # Loop through records
+        print_keepers = ''
+        for keeper in keepers:
+            print_keepers += str(keeper[0]) + '\t' +" Room: " + str(keeper[1]) + " " + '\t'+ "OID->  " + str(keeper[2]) + "\n"
+
+        query_label = Label(root, text=print_keepers)
+        query_label.grid()
+        conn.close()
+
     def send_keeper():
-        print("value is =" + variable.get())
+        print("value is =" + variable.get()[1])
+
+        # Create a db or connect to one
+        conn = sqlite3.connect("Hotel.db")
+        # Create a cursor
+        c = conn.cursor()
+
+        c.execute("SELECT *, oid FROM keepers")
+        keepers = c.fetchall()
+        print(keepers)
+
 
     def query():
         # Create a db or connect to one
@@ -52,9 +83,10 @@ def test_ui():
     c.execute("SELECT *,oid FROM customers")
     records = c.fetchall()
     for record in records:
-        customer.insert(0, {record[0], record[1], record[4], record[6]})
+        customer.insert(0, [record[6], record[0], record[1], record[4]])
     conn.close()
     print(customer)
+
 
     variable = StringVar(root)
     variable.set("WHO IS CALLING THE HOUSEKEEPER")  # default value
@@ -69,6 +101,10 @@ def test_ui():
     # CREATE a query button
     query_btn = Button(root, text="Show OID's", command=query)
     query_btn.grid()
+
+    # CREATE a query button
+    keeper_btn = Button(root, text="Show keepers", command=show_keeper)
+    keeper_btn.grid()
 
     button = Button(root, text="SUBMIT", command=send_keeper)
     button.grid()
