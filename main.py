@@ -4,7 +4,7 @@ import check_out
 import show_customer_info
 import room_info
 import order
-import test
+import housekeeper
 
 def home_ui():
     root = Tk()
@@ -56,7 +56,7 @@ def home_ui():
     house_cleaning_button = Button(bottom, text="CALL HOUSECLEANING", font=("Times", "20", "bold"),
                                    bg="#15d3ba",
                                    relief=RIDGE,
-                                   height=2, width=45, fg="black", anchor="center", command=test.test_ui)
+                                   height=2, width=45, fg="black", anchor="center", command=housekeeper.house_keeper_ui)
     house_cleaning_button.grid(row=5, column=2, padx=10, pady=10)
 
     # Billing button

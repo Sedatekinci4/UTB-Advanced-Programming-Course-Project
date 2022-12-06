@@ -154,7 +154,7 @@ def order_ui():
     c.execute("SELECT Name,Surname,Room_number,Cost,Oid  FROM customers")
     cust_records = c.fetchall()
     for cst in cust_records:
-        people.append([cst[4],cst[0],cst[1], cst[2]])
+        people.append([cst[4], cst[0], cst[1], cst[2]])
     customer_count = len(cust_records)
 
     for cst in range(customer_count):
