@@ -4,8 +4,36 @@ from tkinter import messagebox
 from tkinter import ttk
 from ttkthemes import ThemedTk
 
+
 def house_keeper_ui():
     def close_file():
+        root.destroy()
+
+    def clear_keeper():
+        keeper_clear_oid = "v"
+        # Create a db or connect to one
+        conn = sqlite3.connect("Hotel.db")
+        # Create a cursor
+        c = conn.cursor()
+        keeper_clear_oid = variable_keeper.get()[1]
+        print(keeper_clear_oid)
+        if str(keeper_clear_oid) == "v":
+            messagebox.showwarning('SUCCESS', 'no housekeeper selected!!')
+            return
+        new_room_no = 0
+        c.execute("""UPDATE keepers SET
+                            Room_no = :Room_no
+                            WHERE oid = :oid""",
+                  {
+                      'Room_no': new_room_no,
+                      'oid': keeper_clear_oid
+                  })
+        # Commit change
+        conn.commit()
+
+        # close connection
+        conn.close()
+        messagebox.showinfo('SUCCESS', 'You have successfully called the housekeeper!!')
         root.destroy()
 
     def show_keeper():
@@ -90,7 +118,7 @@ def house_keeper_ui():
         conn.close()
 
     root = Tk()
-    root.geometry("400x400")
+    root.geometry("500x500")
     root.title("SEDAT HOTEL HOUSEKEEPING TAB")
 
     global house_keeper
@@ -125,7 +153,6 @@ def house_keeper_ui():
     for record in records:
         keeper.insert(0, [record[2], record[0], record[1]])
     conn.close()
-    print(customer)
 
     variable_keeper = StringVar(root)
     variable_keeper.set("Available HouseKeepers")  # default value
@@ -139,25 +166,30 @@ def house_keeper_ui():
     w = OptionMenu(root, variable, *customer)
     w.grid()
 
-    label = Label(top, font=('arial', 25, 'bold italic'), text=" ------HouseKeeping------\nService", fg="#34A2FE",
+    label = Label(top, font=('arial', 25, 'bold italic'), text=" ------HouseKeepingService------", fg="#34A2FE",
                   anchor="center")
     label.grid()
 
     # CREATE a query button
-    query_btn = Button(root, text="Show customers", command=query)
+    query_btn = Button(root, text="Show customers", command=query,height=1, width=15, bg="#F7BE81")
     query_btn.grid()
 
     # CREATE a query button
-    keeper_btn = Button(root, text="Show keepers", command=show_keeper)
+    keeper_btn = Button(root, text="Show keepers", command=show_keeper,height=1, width=15, bg="#F7BE81")
     keeper_btn.grid()
 
-    button = Button(root, text="SUBMIT", command=send_keeper)
+    keeper_clear_btn = Button(top, text="Clear keepers room info", font=('', 15), bg="#34A2FE",
+                              relief=RIDGE,
+                              height=1, width=20, fg="black", anchor="nw", command=clear_keeper)
+    keeper_clear_btn.grid()
+
+    button = Button(root, text="SUBMIT", command=send_keeper, bg="lightgreen")
     button.grid()
 
     # Exit button
-    exit_button = Button(top, text="EXIT", font=('', 15), bg="#15d3ba",
+    exit_button = Button(top, text="EXIT", font=('', 15), bg="red", activeforeground="black",
                          relief=RIDGE,
-                         height=1, width=5, fg="red", anchor="nw", command=close_file)
+                         height=1, width=20, fg="white", anchor="center", command=close_file)
     exit_button.grid()
 
     root.mainloop()

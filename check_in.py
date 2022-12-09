@@ -14,6 +14,10 @@ def check_in_ui():
 
     # Create submit function for databases
     def submit():
+        if not f_name.get() or not l_name.get() or not address.get() or not number.get() or not room_number.get():
+            messagebox.showwarning("Warning", "Please fill all the information")
+            root.destroy()
+            return
 
         if room_number.get() == '101' or room_number.get() == '102' or room_number.get() == '103' or room_number.get() == '201' or room_number.get() == '202' or room_number.get() == '203' \
                 or room_number.get() == '301' or room_number.get() == '302' or room_number.get() == '303' or room_number.get() == '401' or room_number.get() == '402' or room_number.get() == '403':
