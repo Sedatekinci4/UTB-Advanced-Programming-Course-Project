@@ -43,7 +43,7 @@ def bill_ui():
 
         print_records = ''
         for record in records:
-            oids.append(str(record[6]))
+            oids.append(str(record[7]))
 
         for oid in oids:
             if str(oid) == str(oid_for_pay.get()):
@@ -83,7 +83,7 @@ def bill_ui():
         print_records = '  --Person ----- Room no --- Cost ----- OID---\n'
         for record in records:
             print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(
-                record[4]) + '\t' + str(record[5]) + ' $\t' + "OID->  " + str(record[6]) + "\n"
+                record[4]) + '\t' + str(record[5]) + ' $\t' + "OID->  " + str(record[7]) + "\n"
 
         query_label = Label(root, text=print_records)
         query_label.grid()

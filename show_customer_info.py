@@ -145,7 +145,8 @@ def customer_info():
                              + "Phone Number:" + '\t' + str(record[3]) + '\n' \
                              + "Room No:     " + '\t' + str(record[4]) + '\n' \
                              + "Bill Price:  " + '\t' + str(record[5]) + '$' + '\n' \
-                             + "Oid:         " + '\t' + str(record[6]) + '\n\n'
+                             + "Dates:" + '\t' + str(record[6]) + '\n' \
+                             + "Oid:         " + '\t' + str(record[7]) + '\n\n'
         query_label = Label(root, text=print_records, anchor='center')
         query_label.grid(row=4, column=0)
 

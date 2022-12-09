@@ -46,7 +46,7 @@ def order_ui():
         names = c.fetchall()
         for name in names:
             print(name)
-            if str(name[6]) == str(person):
+            if str(name[7]) == str(person):
                 print(name[5])
                 print(pri)
                 s = name[5] + pri
@@ -57,8 +57,8 @@ def order_ui():
         c.execute("SELECT *,Oid FROM customers")
         b_name = c.fetchall()
         for i in b_name:
-            if str(person) == str(i[6]):
-                oid_p = i[6]
+            if str(person) == str(i[7]):
+                oid_p = i[7]
                 break
 
         print(oid_p)

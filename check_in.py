@@ -1,7 +1,8 @@
 from tkinter import *
 import sqlite3
 from tkinter import messagebox
-
+from datetime import date
+import datetime
 
 def check_in_ui():
     root = Tk()
@@ -50,15 +51,25 @@ def check_in_ui():
                 else:
                     cost = 0
 
+                today = date.today()
+                last_day = datetime.date.today() + datetime.timedelta(days=int(day_count.get()))
+
+                dates = ''
+                dates += str(today) + '---' + str(last_day)
+
+                print(today)
+                print(last_day)
+
                 # Insert into table
-                c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number, :cost)",
+                c.execute("INSERT INTO customers VALUES (:f_name, :l_name, :address, :number, :room_number, :cost, :days)",
                           {
                               'f_name': f_name.get(),
                               'l_name': l_name.get(),
                               'address': address.get(),
                               'number': number.get(),
                               'room_number': room_number.get(),
-                              'cost': cost* int(day_count.get())
+                              'cost': cost* int(day_count.get()),
+                              'days': dates
                           })
 
                 # Commit change

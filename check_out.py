@@ -65,8 +65,8 @@ def check_out_ui():
 
         print_records = ''
         for record in records:
-            print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(record[6]) + "\n"
-            oids.append(str(record[6]))
+            print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(record[7]) + "\n"
+            oids.append(str(record[7]))
 
         print(oids)
 

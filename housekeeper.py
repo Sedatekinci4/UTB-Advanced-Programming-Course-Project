@@ -72,7 +72,7 @@ def house_keeper_ui():
         c.execute("SELECT *,oid FROM customers")
         customers = c.fetchall()
         for customer in customers:
-            if str(customer[6]) == str(variable.get()[1]):
+            if str(customer[7]) == str(variable.get()[1]):
                 new_room_no = customer[4]
                 print(new_room_no)
 
@@ -106,7 +106,7 @@ def house_keeper_ui():
         print_records = ''
         for record in records:
             print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(
-                record[4]) + '\t' + "OID->  " + str(record[6]) + "\n"
+                record[4]) + '\t' + "OID->  " + str(record[7]) + "\n"
 
         query_label = Label(root, text=print_records)
         query_label.grid()
@@ -139,7 +139,7 @@ def house_keeper_ui():
     c.execute("SELECT *,oid FROM customers")
     records = c.fetchall()
     for record in records:
-        customer.insert(0, [record[6], record[0], record[1], record[4]])
+        customer.insert(0, [record[7], record[0], record[1], record[4]])
     conn.close()
     print(customer)
 
