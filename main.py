@@ -5,8 +5,13 @@ import show_customer_info
 import room_info
 import order
 import housekeeper
+import bill
 
 def home_ui():
+
+    def run_out():
+        root.destroy()
+
     root = Tk()
     root.title("SEDAT HOTEL HOMEPAGE")
     root.geometry("950x950")
@@ -62,13 +67,13 @@ def home_ui():
     # Billing button
     billing_button = Button(bottom, text="CHECK / PAY THE BILL", font=("Times", "20", "bold"), bg="#15d3ba",
                             relief=RIDGE,
-                            height=2, width=45, fg="black", anchor="center", command=None)
+                            height=2, width=45, fg="black", anchor="center", command=bill.bill_ui)
     billing_button.grid(row=6, column=2, padx=10, pady=10)
 
     # Exit button
     exit_button = Button(bottom, text="EXIT", font=('', 20), bg="#15d3ba",
                          relief=RIDGE,
-                         height=2, width=45, fg="red", anchor="center", command=quit)
+                         height=2, width=45, fg="red", anchor="center", command=run_out)
     exit_button.grid(row=7, column=2, padx=10, pady=10)
 
     root.mainloop()

@@ -58,7 +58,7 @@ def check_in_ui():
                               'address': address.get(),
                               'number': number.get(),
                               'room_number': room_number.get(),
-                              'cost': cost
+                              'cost': cost* int(day_count.get())
                           })
 
                 # Commit change
@@ -73,6 +73,7 @@ def check_in_ui():
                 address.delete(0, END)
                 number.delete(0, END)
                 room_number.delete(0, END)
+                day_count.delete(0, END)
 
                 messagebox.showinfo("information", "Check in done successfully")
                 root.destroy()
@@ -84,6 +85,7 @@ def check_in_ui():
                 address.delete(0, END)
                 number.delete(0, END)
                 room_number.delete(0, END)
+                day_count.delete(0, END)
         else:
             messagebox.showerror("Warning", "You've entered the wrong room number")
             # Clear the text boxes
@@ -92,6 +94,7 @@ def check_in_ui():
             address.delete(0, END)
             number.delete(0, END)
             room_number.delete(0, END)
+            day_count.delete(0, END)
             root.destroy()
 
     # Create tet boxes
@@ -105,6 +108,8 @@ def check_in_ui():
     number.grid(row=3, column=1)
     room_number = Entry(root, width=40, borderwidth=10)
     room_number.grid(row=4, column=1)
+    day_count = Entry(root, width=40, borderwidth=10)
+    day_count.grid(row=5, column=1)
 
     # Create Box labels
     f_name_label = Label(root, text="First Name")
@@ -117,6 +122,8 @@ def check_in_ui():
     number_label.grid(row=3, column=0)
     room_number_label = Label(root, text="Room No")
     room_number_label.grid(row=4, column=0)
+    day_count_label = Label(root, text="How many Days")
+    day_count_label.grid(row=5, column=0)
 
     # Create a submit button
     submit_btn = Button(root, text="Add record to Database", command=submit)

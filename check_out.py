@@ -1,5 +1,6 @@
 from tkinter import *
 import sqlite3
+from tkinter import messagebox
 
 
 def check_out_ui():
@@ -7,26 +8,47 @@ def check_out_ui():
     root.title("SEDAT HOTEL CHECK OUT")
     root.geometry("500x500")
 
+    oids = []
+
     def close():
         root.destroy()
 
     # Create function to delete a record
     def delete():
+        print(oids)
         # Create a db or connect to one
         conn = sqlite3.connect("Hotel.db")
         # Create a cursor
         c = conn.cursor()
 
-        # Delete a record
-        c.execute("DELETE from customers WHERE oid=" + delete_box.get())
+        # Query the database
+        c.execute("SELECT *, oid FROM customers")
+        records = c.fetchall()
+        print(records)
 
-        # Commit change
-        conn.commit()
+        # Loop through records
 
+        print_records = ''
+        for record in records:
+            oids.append(str(record[6]))
+
+        for oid in oids:
+            if str(oid) == str(delete_box.get()):
+                print("same")
+                c.execute("DELETE from customers WHERE oid=" + delete_box.get())
+
+                # Commit change
+                conn.commit()
+
+                # close connection
+                conn.close()
+                messagebox.showinfo("Success", "Succesfully checked out")
+                root.destroy()
+
+        messagebox.showwarning("Warning", "No matching customers!!!")
         # close connection
         conn.close()
-
-        # Create query function
+        root.destroy()
 
     def query():
         # Create a db or connect to one
@@ -40,9 +62,13 @@ def check_out_ui():
         print(records)
 
         # Loop through records
+
         print_records = ''
         for record in records:
             print_records += str(record[0]) + " " + str(record[1]) + " " + '\t' + str(record[6]) + "\n"
+            oids.append(str(record[6]))
+
+        print(oids)
 
         query_label = Label(root, text=print_records)
         query_label.grid(row=6, column=0, columnspan=2)
