@@ -70,10 +70,10 @@ So i am sure there are better options for doing the same work as both a programm
 
 And lastly, about the time it takes:
 
-It takes approximately 20 hours + 20h(class hours) = nearly 40h. Because the instructor didn't want us to  exceed the time given.
+I mostly followed the timetable without a problem.
 
-i will leave the project as it is. I could've realized the program faster. But because I don't have the knowledge of some features
+It takes approximately 20 hours + 20h(class hours) = nearly 40h. Because the instructor didn't want us to  exceed the time given I will leave the project as it is. I could've realized the program faster. But because I don't have the knowledge of some features it took me some extra time. 
 
-It took me some extra time. And that's all there is. 
+And that's all there is. 
 
 --Sedat Ekinci
