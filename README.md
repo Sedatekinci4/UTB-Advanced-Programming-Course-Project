@@ -72,7 +72,7 @@ And lastly, about the time it takes:
 
 I mostly followed the timetable without a problem.
 
-It takes approximately 20 hours + 20h(class hours) = nearly 40h. Because the instructor didn't want us to  exceed the time given I will leave the project as it is. I could've realized the program faster. But because I don't have the knowledge of some features it took me some extra time. 
+It took me approximately 20 hours + 20h(class hours) = nearly 40h. Because the instructor didn't want us to  exceed the time given I will leave the project as it is. I could've realized the program faster. But because I don't have the knowledge of some features it took me some extra time. 
 
 And that's all there is. 
 
