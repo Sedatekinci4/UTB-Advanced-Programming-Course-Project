@@ -57,4 +57,23 @@ In this program user can ask questions like:
 + 13.12.2022
 - PRESENTATION DAY!!!!
 ```
+
+# CONCLUSION
+
+In the end, I made all the things i wanted to make. Using a database and working with it was easier than I thought.
+
+Although my database is pretty simple, i learned a lot of stuff. In the end, I think I didn't choose the best options for my project.
+
+Because it was mostly me bare programming everything. 
+
+So i am sure there are better options for doing the same work as both a programming language and a GUI library. Overall, it was good learning and implementing by me.
+
+And lastly, about the time it takes:
+
+I mostly followed the timetable without a problem.
+
+It took me approximately 20 hours + 20h(class hours) = nearly 40h. Because the instructor didn't want us to  exceed the time given I will leave the project as it is. I could've realized the program faster. But because I don't have the knowledge of some features it took me some extra time. 
+
+And that's all there is. 
+
 --Sedat Ekinci
