@@ -136,9 +136,6 @@ def order_ui():
     w = OptionMenu(root, variable, *records)
     w.pack()
 
-    # button = Button(root, text="SUBMIT", command=select_customer)
-    # button.pack()
-
     # Commit change
     conn.commit()
     # close connection
