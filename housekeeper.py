@@ -1,8 +1,7 @@
 from tkinter import *
 import sqlite3
 from tkinter import messagebox
-from tkinter import ttk
-from ttkthemes import ThemedTk
+
 
 
 def house_keeper_ui():
